@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： mariadb
--- 產生時間： 2023 年 04 月 12 日 10:14
+-- 產生時間： 2023 年 04 月 12 日 10:18
 -- 伺服器版本： 10.7.4-MariaDB-1:10.7.4+maria~focal
 -- PHP 版本： 8.1.17
 
@@ -148,6 +148,52 @@ INSERT INTO `house` (`id`, `landlord`, `title`, `subtitle`, `city`, `region`, `r
 (100, 1, '【台中市西區】現代風格套房，近勤美誠品，生活便利', '近捷運，全新裝潢，4樓帶電梯', '', '【台中市西區】現', 6200, '這是一間位於安靜住宅區的套房，距離捷運站步行只需五分鐘。房間內設備齊全，提供獨立的廚房和浴室，適合喜歡獨立生活的人。', '[\"\\/upload\\/images\\/1\\/5.webp\"]', 1, '2023-04-12 18:06:59'),
 (101, 1, '【台北市中山區】全新裝潢套房，近松江南京商圈，生活機能優', '獨立透天，寬敞舒適，2樓帶露台', '', '【台北市中山區】', 5300, '這是一間位於市中心的舒適套房，交通便利，鄰近商圈、超市和公園。房間裝潢簡約舒適，提供基本家具和設備，讓您立即入住。房間內有獨立衛浴，讓您享有更多隱私和便利。附近交通四通八達，走路即可到達捷運站，讓您輕鬆通勤、購物和觀光。如果您正在尋找一個舒適、方便和實惠的住宿選擇，這裡將是您的理想之地。', '[\"\\/upload\\/images\\/1\\/8.webp\"]', 1, '2023-04-12 18:06:59');
 
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `landlord`
+--
+
+CREATE TABLE `landlord` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enable` tinyint(1) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `landlord`
+--
+
+INSERT INTO `landlord` (`id`, `email`, `password`, `name`, `phone`, `enable`, `created_at`) VALUES
+(1, 'kobejames5566@gmail.com', '$2y$10$5S7sQqvle3IGn0PMLpJY0eY2inxZ7ZiYcbgHDscwZb5PSzA0zdHKm', 'PK', '0979092220', 1, '2023-04-10 15:55:54');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `tenant`
+--
+
+CREATE TABLE `tenant` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enable` tinyint(4) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `tenant`
+--
+
+INSERT INTO `tenant` (`id`, `email`, `password`, `name`, `phone`, `enable`, `created_at`) VALUES
+(1, 'kobejames5566@gmail.com', '$2y$10$5S7sQqvle3IGn0PMLpJY0eY2inxZ7ZiYcbgHDscwZb5PSzA0zdHKm', 'PK', '0979092220', 1, '2023-04-10 15:55:54');
+
 --
 -- 已傾印資料表的索引
 --
@@ -160,6 +206,20 @@ ALTER TABLE `house`
   ADD KEY `landlord` (`landlord`);
 
 --
+-- 資料表索引 `landlord`
+--
+ALTER TABLE `landlord`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `email` (`email`);
+
+--
+-- 資料表索引 `tenant`
+--
+ALTER TABLE `tenant`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `email` (`email`);
+
+--
 -- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
 --
 
@@ -168,6 +228,18 @@ ALTER TABLE `house`
 --
 ALTER TABLE `house`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `landlord`
+--
+ALTER TABLE `landlord`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `tenant`
+--
+ALTER TABLE `tenant`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- 已傾印資料表的限制式
