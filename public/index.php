@@ -16,10 +16,6 @@ session_start();
 <div class="w-full min-h-screen">
   <div class="slideshow-container">
     <div class="mySlides fade">
-      <a href="./faq.php"><img src="./static/image/slide3.png" style="width:100%"></a>
-    </div>
-
-    <div class="mySlides fade">
       <img src="./static/image/slide1.jpg" style="width:100%">
     </div>
 

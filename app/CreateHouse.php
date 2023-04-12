@@ -9,7 +9,6 @@ class CreateHouse extends LandlordCheck {
         $this->subtitle = isset($_POST['subtitle']) ? trim($_POST['subtitle']) : '';
         $this->region = isset($_POST['region']) ? trim($_POST['region']) : '';
         $this->rent = isset($_POST['rent']) ? (int)trim($_POST['rent']) : '';
-        $this->vr_url = isset($_POST['vr_url']) ? trim($_POST['vr_url']) : '';
         $this->description = isset($_POST['description']) ? $_POST['description'] : '';
         $this->house_img = isset($_POST['house_img']) ? trim($_POST['house_img']) : '';
     }
@@ -42,10 +41,6 @@ class CreateHouse extends LandlordCheck {
             $alert = '租金未填寫';
             return $alert;
         }
-        if (empty($this->vr_url)) {
-            $alert = 'VR 看房網址未填寫';
-            return $alert;
-        }
         if (empty($this->description)) {
             $alert = '房屋描述未填寫';
             return $alert;
@@ -58,8 +53,8 @@ class CreateHouse extends LandlordCheck {
 
     public function insertHouse() {
         try {
-            $sql = "INSERT INTO `house` (`landlord`, `title`, `subtitle`, `city`, `region`, `rent`, `vr_url`, `description`, `images`, `enable`) VALUES
-                        (:landlord, :title, :subtitle, :city, :region, :rent, :vr_url, :description, :images, :enable)";
+            $sql = "INSERT INTO `house` (`landlord`, `title`, `subtitle`, `city`, `region`, `rent`, `description`, `images`, `enable`) VALUES
+                        (:landlord, :title, :subtitle, :city, :region, :rent, :description, :images, :enable)";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute(['landlord' => $_SESSION['user_id'],
                 'title' => $this->title,
@@ -67,7 +62,6 @@ class CreateHouse extends LandlordCheck {
                 'city' => '',
                 'region' => $this->region,
                 'rent' => $this->rent,
-                'vr_url' => $this->vr_url,
                 'description' => $this->description,
                 'images' => json_encode([$this->house_img], true),
                 'enable' => 1]);

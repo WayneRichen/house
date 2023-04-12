@@ -1,8 +1,22 @@
-# 看房網
-## 網頁安裝說明
-### 資料庫設定
-1. 首先開啟 XAMPP MySQL 使用 phpMyAdmin 匯入以下資料（全部複製到 SQL 貼上）：
-```sql
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- 主機： mariadb
+-- 產生時間： 2023 年 04 月 12 日 07:35
+-- 伺服器版本： 10.7.4-MariaDB-1:10.7.4+maria~focal
+-- PHP 版本： 8.1.17
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
 -- 資料庫： `house`
 --
@@ -118,26 +132,7 @@ ALTER TABLE `tenant`
 ALTER TABLE `house`
   ADD CONSTRAINT `house_ibfk_1` FOREIGN KEY (`landlord`) REFERENCES `landlord` (`id`);
 COMMIT;
-```
-![image](https://user-images.githubusercontent.com/84951972/177332272-a116628b-4174-49b7-998c-fb49d6304520.png)
-![image](https://user-images.githubusercontent.com/84951972/177333008-56f751bd-23c8-4f34-a594-bee0d08947e4.png)
 
-
-
-### 網頁伺服器設定
-1. 設定 Apache 的 httpd.conf，找到 ``DocumentRoot`` 將路徑設為 ``house`` 底下的 ``public`` 資料夾。
-![image](https://user-images.githubusercontent.com/84951972/177332502-9813cf6b-5fe9-4657-85ac-01b759edd27d.png)
-![image](https://user-images.githubusercontent.com/84951972/177332654-a384fbe0-1e96-4c14-a1d8-fb58aec98a0a.png)
-1. 再依情況開啟 ``db.php`` 修改資料庫的連線資訊
-![image](https://user-images.githubusercontent.com/84951972/177332836-5f4343ca-0e05-4370-9286-50c78a2274ae.png)
-1. 重啟 Apache 開啟網頁即完成。
-
-
-## 程式結構說明
-- app: 程式邏輯的部分，依照各網頁對應相關的邏輯，網頁需要用到時才來調用，不公開在網路上
-- parital: 網頁共用的元素，Navbar 及後臺側邊欄
-- public: 各網頁的入口點，公開在網路上
-- src: 開發時產生 css 會用到
-
-## 本地開發說明
-本專案 CSS 框架使用 Tailwind CSS，如果有需要自行修改樣式的需求，需要安裝 Node.js，在專案跟目錄輸入 ``npm run dev`` 會自動編譯 css。
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
