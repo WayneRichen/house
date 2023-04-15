@@ -9,7 +9,7 @@ require APP_PATH.'house-manage.php';
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./static/css/output.css" rel="stylesheet">
-  <title>房屋管理｜看房網</title>
+  <title>房屋管理｜找好屋</title>
 </head>
 <body>
   <div class="min-h-screen flex">

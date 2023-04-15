@@ -14,7 +14,7 @@ if (isset($_POST['title'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./static/css/output.css" rel="stylesheet">
   <script src="./static/js/jquery-3.6.0.min.js"></script>
-  <title>新增房屋｜看房網</title>
+  <title>新增房屋｜找好屋</title>
 </head>
 <body>
   <div class="min-h-screen flex">

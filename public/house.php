@@ -12,7 +12,7 @@ require APP_PATH . 'house.php'
   <link href="./static/css/output.css" rel="stylesheet">
   <script src="./static/js/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="./static/js/flowbite.min.css" />
-  <title><?= $house['title'] ?> | 看房網</title>
+  <title><?= $house['title'] ?> | 找好屋</title>
 </head>
 <div class="w-full h-screen">
   <?php require PARTIAL_PATH . 'navbar.php'; ?>

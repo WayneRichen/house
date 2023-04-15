@@ -20,7 +20,7 @@ if (isset($_POST['type'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./static/css/output.css" rel="stylesheet">
-  <title>帳號註冊｜看房網</title>
+  <title>帳號註冊｜找好屋</title>
 </head>
 <body>
   <nav class="w-full fixed z-10">
@@ -28,7 +28,7 @@ if (isset($_POST['type'])) {
       <a href="./index.php" class="logo">
         <img src="./static/image/logo.png" class="h-28" height="100%">
       </a>
-      <span class="text-2xl font-bold">看房網</sapn>
+      <span class="text-2xl font-bold">找好屋</sapn>
     </div>
   </nav>
   <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">

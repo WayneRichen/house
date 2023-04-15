@@ -12,7 +12,7 @@ require APP_PATH . 'search.php'
   <link href="./static/css/output.css" rel="stylesheet">
   <link href="./static/css/slide.css" rel="stylesheet">
   <script src="./static/js/jquery-3.6.0.min.js"></script>
-  <title><?= $_GET['region'] ?> 的搜尋結果 | 看房網</title>
+  <title><?= $_GET['region'] ?> 的搜尋結果 | 找好屋</title>
 </head>
 <?php require PARTIAL_PATH . 'navbar.php'; ?>
 <div class="h-24"></div>
