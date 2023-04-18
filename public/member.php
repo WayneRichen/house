@@ -10,7 +10,7 @@ require APP_PATH . 'member.php'
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./static/css/output.css" rel="stylesheet">
   <script src="./static/js/jquery-3.6.0.min.js"></script>
-  <title>會員中心 | 找好屋</title>
+  <title>會員中心 | 看房網</title>
 </head>
 <?php require PARTIAL_PATH . 'navbar.php'; ?>
 <div class="max-w-screen-lg min-h-full flex items-center mx-auto justify-center">

@@ -9,6 +9,7 @@ class EditHouse extends CreateHouse {
         $this->subtitle = isset($_POST['subtitle']) ? trim($_POST['subtitle']) : '';
         $this->region = isset($_POST['region']) ? trim($_POST['region']) : '';
         $this->rent = isset($_POST['rent']) ? (int)trim($_POST['rent']) : '';
+        $this->vr_url = isset($_POST['vr_url']) ? trim($_POST['vr_url']) : '';
         $this->description = isset($_POST['description']) ? $_POST['description'] : '';
         $this->house_img = isset($_POST['house_img']) ? trim($_POST['house_img']) : '[]';
         $this->house_id = isset($_GET['id']) ? $_GET['id'] : '';
@@ -52,7 +53,8 @@ class EditHouse extends CreateHouse {
                     `subtitle`=:subtitle, 
                     `city`=:city, 
                     `region`=:region, 
-                    `rent`=:rent,
+                    `rent`=:rent, 
+                    `vr_url`=:vr_url, 
                     `description`=:description, 
                     `images`=:images 
                     WHERE `id`=:id";
@@ -63,6 +65,7 @@ class EditHouse extends CreateHouse {
                 'city' => '',
                 'region' => $this->region,
                 'rent' => $this->rent,
+                'vr_url' => $this->vr_url,
                 'description' => $this->description,
                 'images' => json_encode([$this->house_img], true),
                 'id' => $this->house_id]);

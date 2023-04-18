@@ -3,7 +3,7 @@
   <div class="container flex flex-wrap justify-between items-center mx-auto">
     <a href="./index.php" class="flex items-center">
       <img src="./static/image/logo.png" class="mr-2 h-16 sm:h-16" alt="Logo" />
-      <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">找好屋</span>
+      <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">看房網</span>
     </a>
     <button data-collapse-toggle="mobile-menu" type="button"
       class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -38,21 +38,21 @@
               <option value="清水區">清水區</option>
               <option value="沙鹿區">沙鹿區</option>
               <option value="大甲區">大甲區</option>
-              <option value="西區">西區</option>
-              <option value="南區">南區</option>
             </optgroup>
             <optgroup label="台北市">
-              <option value="信義區">信義區</option>
               <option value="中正區">中正區</option>
               <option value="萬華區">萬華區</option>
               <option value="大同區">大同區</option>
               <option value="中山區">中山區</option>
               <option value="大安區">大安區</option>
               <option value="士林區">士林區</option>
-              <option value="北投區">北投區</option>
             </optgroup>
           </select>
         </form>
+        <li>
+          <a href="./faq.php"
+            class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">常見問題</a>
+        </li>
         <?php if (isset($_SESSION['user_name'])): ?>
         <li class="flex flex-row">
           <span class="text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><?= 'Hello, '.$_SESSION['user_name'] ?></span>

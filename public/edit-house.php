@@ -17,7 +17,7 @@ if (isset($_POST['title'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./static/css/output.css" rel="stylesheet">
   <script src="./static/js/jquery-3.6.0.min.js"></script>
-  <title>編輯房屋｜找好屋</title>
+  <title>編輯房屋｜看房網</title>
 </head>
 <body>
   <div class="min-h-screen flex">
@@ -54,6 +54,10 @@ if (isset($_POST['title'])) {
         <div>
           <label class="text-gray-800 font-semibold block my-3 text-md" for="rent">租金</label>
           <input class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="text" name="rent" id="rent" value="<?= isset($_POST['rent']) ? $_POST['rent'] : $house['rent'] ?>" required />
+        </div>
+        <div>
+          <label class="text-gray-800 font-semibold block mt-3 text-md" for="vr_url">VR 看房網址</label><a class="text-sm text-blue-700" href="./faq.php">如何上傳 VR 環景相片？</a>
+          <input class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="text" name="vr_url" id="vr_url" value="<?= isset($_POST['vr_url']) ? $_POST['vr_url'] : $house['vr_url'] ?>" required />
         </div>
         <div>
           <label class="text-gray-800 font-semibold block my-3 text-md" for="description">房屋描述</label>
