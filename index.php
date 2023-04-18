@@ -10,21 +10,13 @@ session_start();
   <link href="./static/css/output.css" rel="stylesheet">
   <link href="./static/css/slide.css" rel="stylesheet">
   <script src="./static/js/jquery-3.6.0.min.js"></script>
-  <title>看房網</title>
+  <title>找好屋</title>
 </head>
 <?php require PARTIAL_PATH . 'navbar.php'; ?>
 <div class="w-full min-h-screen">
   <div class="slideshow-container">
-    <!-- <div class="mySlides fade">
-      <a href="./faq.php"><img src="./static/image/slide3.png" style="width:100%"></a>
-    </div> -->
-
     <div class="mySlides fade">
-      <img src="./static/image/slide1.jpg" style="width:100%">
-    </div>
-
-    <div class="mySlides fade">
-      <img src="./static/image/slide2.jpg" style="width:100%">
+      <img src="./static/image/background.jpg" style="width:100%">
     </div>
     <div class="absolute mt-10 w-full h-2/3 bottom-0">
       <div class="mx-64 mt-16 p-2 bg-white rounded text-gray-600 font-bold" style="background-color: rgba(255,255,255,0.8);">

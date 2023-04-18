@@ -38,14 +38,18 @@
               <option value="清水區">清水區</option>
               <option value="沙鹿區">沙鹿區</option>
               <option value="大甲區">大甲區</option>
+              <option value="西區">西區</option>
+              <option value="南區">南區</option>
             </optgroup>
             <optgroup label="台北市">
+              <option value="信義區">信義區</option>
               <option value="中正區">中正區</option>
               <option value="萬華區">萬華區</option>
               <option value="大同區">大同區</option>
               <option value="中山區">中山區</option>
               <option value="大安區">大安區</option>
               <option value="士林區">士林區</option>
+              <option value="北投區">北投區</option>
             </optgroup>
           </select>
         </form>
