@@ -1,8 +1,5 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_name'])) {
-    header("location:login.php");
-}
 require('db.php');
 $success = false;
 if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['content'])) {
