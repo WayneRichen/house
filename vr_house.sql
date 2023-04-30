@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： mariadb
--- 產生時間： 2023 年 04 月 18 日 13:19
+-- 產生時間： 2023 年 04 月 30 日 08:10
 -- 伺服器版本： 10.7.4-MariaDB-1:10.7.4+maria~focal
 -- PHP 版本： 8.1.17
 
@@ -175,6 +175,34 @@ INSERT INTO `landlord` (`id`, `email`, `password`, `name`, `phone`, `enable`, `c
 -- --------------------------------------------------------
 
 --
+-- 資料表結構 `landlord_review`
+--
+
+CREATE TABLE `landlord_review` (
+  `id` int(11) NOT NULL,
+  `landlord_id` int(11) NOT NULL,
+  `tenant_id` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `suggest`
+--
+
+CREATE TABLE `suggest` (
+  `id` int(11) NOT NULL,
+  `name` varchar(32) DEFAULT NULL,
+  `email` varchar(128) DEFAULT NULL,
+  `content` text NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- 資料表結構 `tenant`
 --
 
@@ -214,6 +242,20 @@ ALTER TABLE `landlord`
   ADD KEY `email` (`email`);
 
 --
+-- 資料表索引 `landlord_review`
+--
+ALTER TABLE `landlord_review`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `landlord_id` (`landlord_id`),
+  ADD KEY `tenant_id` (`tenant_id`);
+
+--
+-- 資料表索引 `suggest`
+--
+ALTER TABLE `suggest`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- 資料表索引 `tenant`
 --
 ALTER TABLE `tenant`
@@ -237,6 +279,18 @@ ALTER TABLE `landlord`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- 使用資料表自動遞增(AUTO_INCREMENT) `landlord_review`
+--
+ALTER TABLE `landlord_review`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `suggest`
+--
+ALTER TABLE `suggest`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- 使用資料表自動遞增(AUTO_INCREMENT) `tenant`
 --
 ALTER TABLE `tenant`
@@ -251,6 +305,13 @@ ALTER TABLE `tenant`
 --
 ALTER TABLE `house`
   ADD CONSTRAINT `house_ibfk_1` FOREIGN KEY (`landlord`) REFERENCES `landlord` (`id`);
+
+--
+-- 資料表的限制式 `landlord_review`
+--
+ALTER TABLE `landlord_review`
+  ADD CONSTRAINT `landlord_review_ibfk_2` FOREIGN KEY (`tenant_id`) REFERENCES `tenant` (`id`),
+  ADD CONSTRAINT `landlord_review_ibfk_3` FOREIGN KEY (`landlord_id`) REFERENCES `landlord` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
