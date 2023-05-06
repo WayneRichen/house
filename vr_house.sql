@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： mariadb
--- 產生時間： 2023 年 04 月 30 日 08:10
+-- 產生時間： 2023 年 05 月 06 日 09:26
 -- 伺服器版本： 10.7.4-MariaDB-1:10.7.4+maria~focal
 -- PHP 版本： 8.1.17
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- 資料庫： `vr_house`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `collection`
+--
+
+CREATE TABLE `collection` (
+  `id` int(11) NOT NULL,
+  `tenant_id` int(11) NOT NULL,
+  `house_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -228,6 +241,14 @@ INSERT INTO `tenant` (`id`, `email`, `password`, `name`, `phone`, `enable`, `cre
 --
 
 --
+-- 資料表索引 `collection`
+--
+ALTER TABLE `collection`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `house` (`house_id`),
+  ADD KEY `tenant_id` (`tenant_id`);
+
+--
 -- 資料表索引 `house`
 --
 ALTER TABLE `house`
@@ -267,6 +288,12 @@ ALTER TABLE `tenant`
 --
 
 --
+-- 使用資料表自動遞增(AUTO_INCREMENT) `collection`
+--
+ALTER TABLE `collection`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- 使用資料表自動遞增(AUTO_INCREMENT) `house`
 --
 ALTER TABLE `house`
@@ -299,6 +326,13 @@ ALTER TABLE `tenant`
 --
 -- 已傾印資料表的限制式
 --
+
+--
+-- 資料表的限制式 `collection`
+--
+ALTER TABLE `collection`
+  ADD CONSTRAINT `collection_ibfk_1` FOREIGN KEY (`tenant_id`) REFERENCES `tenant` (`id`),
+  ADD CONSTRAINT `collection_ibfk_2` FOREIGN KEY (`house_id`) REFERENCES `house` (`id`);
 
 --
 -- 資料表的限制式 `house`
