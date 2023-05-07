@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： mariadb
--- 產生時間： 2023 年 05 月 06 日 09:26
+-- 產生時間： 2023 年 05 月 07 日 08:05
 -- 伺服器版本： 10.7.4-MariaDB-1:10.7.4+maria~focal
 -- PHP 版本： 8.1.17
 
@@ -20,6 +20,22 @@ SET time_zone = "+00:00";
 --
 -- 資料庫： `vr_house`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `chat`
+--
+
+CREATE TABLE `chat` (
+  `id` int(11) NOT NULL,
+  `tenant_id` int(11) NOT NULL,
+  `landlord_id` int(11) NOT NULL,
+  `message_from` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message_to` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -241,6 +257,14 @@ INSERT INTO `tenant` (`id`, `email`, `password`, `name`, `phone`, `enable`, `cre
 --
 
 --
+-- 資料表索引 `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tenant_id` (`tenant_id`),
+  ADD KEY `landlord_id` (`landlord_id`);
+
+--
 -- 資料表索引 `collection`
 --
 ALTER TABLE `collection`
@@ -288,6 +312,12 @@ ALTER TABLE `tenant`
 --
 
 --
+-- 使用資料表自動遞增(AUTO_INCREMENT) `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- 使用資料表自動遞增(AUTO_INCREMENT) `collection`
 --
 ALTER TABLE `collection`
@@ -326,6 +356,13 @@ ALTER TABLE `tenant`
 --
 -- 已傾印資料表的限制式
 --
+
+--
+-- 資料表的限制式 `chat`
+--
+ALTER TABLE `chat`
+  ADD CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`tenant_id`) REFERENCES `tenant` (`id`),
+  ADD CONSTRAINT `chat_ibfk_2` FOREIGN KEY (`landlord_id`) REFERENCES `landlord` (`id`);
 
 --
 -- 資料表的限制式 `collection`

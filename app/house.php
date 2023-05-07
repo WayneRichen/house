@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['id'])) {
     require('db.php');
-    $sql = 'SELECT `house`.*, `landlord`.`name` as `landlord_name`, `landlord`.`email` as `landlord_email`, `landlord`.`phone` as `landlord_phone` 
+    $sql = 'SELECT `house`.*, `landlord`.`id` as `landlord_id`, `landlord`.`name` as `landlord_name`, `landlord`.`email` as `landlord_email`, `landlord`.`phone` as `landlord_phone` 
             FROM `house`
             LEFT JOIN `landlord` ON `landlord`.`id` = `house`.`landlord`
             WHERE `house`.`id` = :id AND  `house`.`enable` = 1';
